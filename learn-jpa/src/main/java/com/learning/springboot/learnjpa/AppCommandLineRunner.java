@@ -1,5 +1,7 @@
 package com.learning.springboot.learnjpa;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -25,10 +27,15 @@ public class AppCommandLineRunner implements CommandLineRunner{
 		bookDao.insert(new Book(3, "1003", "React JS", "Doggo"));
 		bookDao.insert(new Book(4, "1004", "Python", "Doggo"));
 		
-		// Select a single example		
+		//1. Select a single example		
 		Book book= bookDao.findById(2);
 		System.out.println(book);
-		// end
+		//1. end
+		
+		//2. Select all records example
+		List<Book> books =  bookDao.findAll();
+		System.out.println(books);
+		//2. end
 		
 	}
 

@@ -1,6 +1,7 @@
 package com.learning.dao;
 
 import java.sql.ResultSet;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -54,6 +55,8 @@ public class BookDao {
 		return jdbcTemplate.queryForObject(selectSingle, rowMapper, bookId);
 	}
 	
+	//3. Select Query - Single Record - End
+	
 	private Book mapBook (ResultSet rs, int row) {
 		Book book = new Book();
 		try {
@@ -66,7 +69,15 @@ public class BookDao {
 		}
 		return book;
 	}
+
+	//4. SELECT Query - Multiple Record - Start
 	
-	//3. Select Query - Single Record - End
+	private String selectAll = "Select * from M_Book";
 	
+	public List<Book> findAll() {
+		RowMapper<Book> rowMapper = this::mapBook; // Custom Row Mapper
+		return jdbcTemplate.queryForStream(selectAll, rowMapper).toList();
+	}
+
+	//4.SELECT Query - Multiple Record - End
 }
