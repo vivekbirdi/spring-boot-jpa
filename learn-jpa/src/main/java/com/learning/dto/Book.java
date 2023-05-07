@@ -7,6 +7,9 @@ public class Book {
 	private String name;
 	private String author;
 
+	public Book() {
+		// Empty
+	}
 	
 	public Book(long bookId, String code, String name, String author) {
 		super();
@@ -39,5 +42,10 @@ public class Book {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
+	@Override
+	public String toString() {
+		return "Book [bookId=" + bookId + ", code=" + code + ", name=" + name + ", author=" + author + "]";
+	}
+	
 	
 }

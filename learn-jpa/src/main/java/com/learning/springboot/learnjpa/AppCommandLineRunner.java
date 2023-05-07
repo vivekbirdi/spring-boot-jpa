@@ -24,6 +24,12 @@ public class AppCommandLineRunner implements CommandLineRunner{
 		bookDao.insert(new Book(2, "1002", "Java", "Doggo"));
 		bookDao.insert(new Book(3, "1003", "React JS", "Doggo"));
 		bookDao.insert(new Book(4, "1004", "Python", "Doggo"));
+		
+		// Select a single example		
+		Book book= bookDao.findById(2);
+		System.out.println(book);
+		// end
+		
 	}
 
 }
