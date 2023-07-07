@@ -30,6 +30,10 @@ public class SpringDataJPACommandLineRunner implements CommandLineRunner{
 		// Select from Department Table
 		List<Department> departments =  repository.findAll();
 		System.out.println(departments);
+		
+		System.out.println("********* Find by code ******");
+		List<Department> departmentsByCode =  repository.findByCode("1001");
+		System.out.println(departmentsByCode);
 	}
 	
 	
